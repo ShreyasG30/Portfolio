@@ -2,30 +2,33 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 
 const Projects = [
-    {
-        id: 1, title: "Project One", 
-        description: "Description of project one", 
-        image: "/Projects/Project_01.jpeg", 
-        tags: ["React", "JavaScript"], 
-        demoUrl: "#",
-        githubUrl: "#",
-    },
-    {
-        id: 2, title: "Project Two", 
-        description: "Description of project two",
-        image: "/Projects/Project_02.jpg",
-        tags: ["Python", "Flask"],
-        demoUrl: "#",
-        githubUrl: "#",
-    },
-    {
-        id: 3, title: "Project Three",
-        description: "Description of project three",
-        image: "/Projects/Project_03.png",
-        tags: ["Django", "JavaScript"],
-        demoUrl: "#",
-        githubUrl: "#",
-    },
+  {
+    id: 1,
+    title: "CFD Simulation of Aircraft Wing",
+    description: "Flow simulation over a wing using turbulence modeling.",
+    image: "/Projects/Project_01.jpeg", // your existing image
+    tags: ["CFD", "OpenFOAM"],
+    demoUrl: "#",      // Optional
+    githubUrl: "#",    // Optional
+  },
+  {
+    id: 2,
+    title: "Structural Analysis of Turbine Casing",
+    description: "Finite Element Analysis (FEA) to evaluate stresses and temperature distribution.",
+    image: "/Projects/Project_02.jpg",
+    tags: ["FEA", "ANSYS", "Thermal"],
+    demoUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: 3,
+    title: "FSI Analysis of Automotive Duct",
+    description: "Fluid-Structure Interaction analysis combining pressure and deformation effects.",
+    image: "/Projects/Project_03.png",
+    tags: ["FSI", "ANSYS", "Coupled"],
+    demoUrl: "#",
+    githubUrl: "#",
+  },
 ];
 
 export const ProjectsSection = () => {
