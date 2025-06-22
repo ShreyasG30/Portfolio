@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Projects = [
@@ -117,6 +118,10 @@ const Projects = [
 
 
 export const ProjectsSection = () => {
+  const navigate = useNavigate();
+  const onClickProject = (project) => {
+    navigate(`/projects/${project.id}`, { state: { project } });
+  }
     return <section id="projects" className="py-24 px-4 relative">
         <div className="w-full max-w-[95rem] px-6 mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center"> Featured <span className="text-primary">Projects</span>
@@ -142,7 +147,7 @@ export const ProjectsSection = () => {
                         <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
                         <div className="flex justify-between items-center">
                             <div className="flex space-x-3">
-                            <a href={project.demoUrl} target="_blank" className="text-foreground/80 hover:text-primary transition-colors duration-300"><ExternalLink size={20}/></a>
+                            <button className="text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer" onClick={() => onClickProject(project)}><ExternalLink size={20}/></button>
                             <a href={project.githubUrl} target="_blank" className="text-foreground/80 hover:text-primary transition-colors duration-300"><Github size={20}/></a>
                             </div>
                         </div>
