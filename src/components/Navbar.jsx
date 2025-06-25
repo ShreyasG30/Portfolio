@@ -5,13 +5,14 @@ import { X, Menu } from "lucide-react";
 
 
 const navItems = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    // { name: 'Experience', href: '#experience' },
-    // { name: 'Certifications', href: '#certifications' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/#about' },
+  { name: 'Skills', href: '/#skills' },
+  // { name: 'Experience', href: '/#experience' },
+  { name: 'Projects', href: '/#projects' },
+  { name: 'Certifications', href: '/certificates' },
+  { name: 'Blogs', href: '/blogs' },
+  { name: 'Contact', href: '/#contact' },
 ]; 
 
 export const Navbar = () => {

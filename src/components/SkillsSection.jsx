@@ -41,11 +41,10 @@ const skills = [
 ];
 
 
-const category = ["All", "Programming", "FEM/CFD Tools", "CAD", "Numerical Methods", "Language"];
-
+const category = ["CAD","FEM/CFD Tools", "Programming", "Numerical Methods", "Language", "All"];
 
 export const SkillsSection = () => {
-    const [activeCategory, setActiveCategory] = useState("all");
+    const [activeCategory, setActiveCategory] = useState("CAD");
 
     const filteredSkills = skills.filter(skill =>
         activeCategory === "All" || skill.category === activeCategory
