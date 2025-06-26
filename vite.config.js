@@ -5,7 +5,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Shreyas-Girish-Portfolio-react-tailwind/',
+  base: '/Portfolio/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
