@@ -265,15 +265,14 @@ export const ProjectsSection = () => {
                 <h3 className="text-xl font-semibold mb-2 text-center">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4 text-center">{project.description}</p>
                 <div className="flex justify-center items-center w-full mt-auto">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate(project.demoUrl)}
                     className="text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
-                    title="Open Project in New Tab"
+                    title="Open Project"
+                    style={{ background: "none", border: "none", padding: 0 }}
                   >
                     <ExternalLink size={20} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
