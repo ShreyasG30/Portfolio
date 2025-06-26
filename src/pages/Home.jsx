@@ -8,9 +8,22 @@ import { ProjectsSection } from '../components/ProjectsSection';
 import { ContactSection } from '../components/ContactSection';
 import CertificatesSection from '../components/CertificatesSection';
 import BlogsSection from '../components/BlogsSection';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 
 export const Home = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+            const el = document.getElementById(location.state.scrollTo);
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [location.state]);
+
     return <div className="min-h-screen bg-background text-forground overflow-x-hdden">
 
         {/* Theme toggle */}

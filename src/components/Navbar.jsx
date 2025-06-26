@@ -2,6 +2,8 @@ import { useState } from "react";
 import { cn } from "../libs/utils";
 import { useEffect } from "react";
 import { X, Menu } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 
 
 const navItems = [
@@ -18,6 +20,8 @@ const navItems = [
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,10 +47,17 @@ export const Navbar = () => {
     {/* Desktop Navbar */}
     <div className="hidden md:flex space-x-8">
         {navItems.map((item, key) => (
-            <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            onClick={() => setIsMenuOpen(false)}>
+            <button
+                key={key}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 bg-transparent border-none"
+                onClick={() => {
+                    const hash = item.href.split("#")[1];
+                    navigate("/", { state: { scrollTo: hash } });
+                    setIsMenuOpen(false);
+                }}
+            >
                 {item.name}
-            </a>
+            </button>
         ))}
     </div>
 
@@ -66,10 +77,18 @@ export const Navbar = () => {
         isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
     )}>
     <div className="flex flex-col space-y-4 xl">
-        {navItems.map((item, key) => (
-            <a key={key} href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300">
+    {navItems.map((item, key) => (
+            <button
+                key={key}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 bg-transparent border-none"
+                onClick={() => {
+                    const hash = item.href.split("#")[1];
+                    navigate("/", { state: { scrollTo: hash } });
+                    setIsMenuOpen(false);
+                }}
+            >
                 {item.name}
-            </a>
+            </button>
         ))}
     </div>
     </div>

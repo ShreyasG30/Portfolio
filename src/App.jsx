@@ -16,8 +16,8 @@ function App() {
     <>
       <StarBackground />
       <ThemeToggle />
-      <Navbar />
         <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route index element={<Home />} />
           {/* <Route path="/projects" element={<AllProjects />}/> */}
