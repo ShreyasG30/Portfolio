@@ -4,164 +4,165 @@ const certificates = [
   {
     name: "Coursera Machine Learning.pdf",
     displayName: "Machine Learning – Coursera (Stanford, Andrew Ng)",
-    file: "/src/certificates/Coursera Machine Learning.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Coursera Machine Learning.pdf`,
     date: "14-07-2024",
     verification: "https://coursera.org/verify/DX8GEA4SU9LN",
-    tags: ["Machine Learning", "Supervised Learning", "Coursera", "Stanford"],
+    tags: ["Machine Learning", "Supervised Learning", "Coursera", "Stanford"]
   },
   {
     name: "PUMPS 24_Shreyas Girish.pdf",
     displayName: "PUMPS+AI ACM Summer School – BSC",
-    file: "/src/certificates/PUMPS 24_Shreyas Girish.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/PUMPS 24_Shreyas Girish.pdf`,
     date: "12-07-2024",
     verification: "",
-    tags: ["High Performance Computing", "AI", "Parallel Programming", "Supercomputing", "BSC"],
+    tags: ["High Performance Computing", "AI", "Parallel Programming", "Supercomputing", "BSC"]
   },
   {
     name: "CIMNE_Winter_school.pdf",
     displayName: "CIMNE Winter School – Multiphysics",
-    file: "/src/certificates/CIMNE_Winter_school.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/CIMNE_Winter_school.pdf`,
     date: "05-02-2024",
     verification: "",
-    tags: ["Numerical Methods", "Multiphysics", "CIMNE", "Winter School", "Simulation"],
+    tags: ["Numerical Methods", "Multiphysics", "CIMNE", "Winter School", "Simulation"]
   },
   {
     name: "Finite Element Analysis.pdf",
     displayName: "Finite Element Analysis",
-    file: "/src/certificates/Finite Element Analysis.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Finite Element Analysis.pdf`,
     date: "31-07-2023",
     verification: "",
-    tags: ["FEA", "Stress Analysis", "Simulation"],
+    tags: ["FEA", "Stress Analysis", "Simulation"]
   },
   {
     name: "Advanced CFD using ANSYS Fluent.pdf",
     displayName: "Advanced CFD using ANSYS Fluent",
-    file: "/src/certificates/Advanced CFD using ANSYS Fluent.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Advanced CFD using ANSYS Fluent.pdf`,
     date: "10-07-2022",
     verification: "",
-    tags: ["CFD", "ANSYS Fluent", "Simulation"],
+    tags: ["CFD", "ANSYS Fluent", "Simulation"]
   },
   {
     name: "Advanced CFD for IC Engine Applications.pdf",
     displayName: "Advanced CFD for IC Engine Applications",
-    file: "/src/certificates/Advanced CFD for IC Engine Applications.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Advanced CFD for IC Engine Applications.pdf`,
     date: "20-06-2022",
     verification: "",
-    tags: ["CFD", "IC Engine", "Combustion", "Turbulence Modeling"],
+    tags: ["CFD", "IC Engine", "Combustion", "Turbulence Modeling"]
   },
   {
     name: "A Literature Survey on Automobile fuel system technologies.pdf",
     displayName: "Automobile Fuel System Technologies – Literature Survey",
-    file: "/src/certificates/A Literature Survey on Automobile fuel system technologies.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/A Literature Survey on Automobile fuel system technologies.pdf`,
     date: "15-04-2022",
     verification: "",
-    tags: ["Automotive", "Fuel Systems", "IC Engine", "Literature Review"],
+    tags: ["Automotive", "Fuel Systems", "IC Engine", "Literature Review"]
   },
   {
     name: "Pirple_C++.pdf",
     displayName: "C++ for the Rest of Us – Pirple",
-    file: "/src/certificates/Pirple_C++.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Pirple_C++.pdf`,
     date: "13-01-2022",
     verification: "",
-    tags: ["C++", "OOP", "Programming", "Pirple"],
+    tags: ["C++", "OOP", "Programming", "Pirple"]
   },
   {
     name: "Pirple_JAVA.pdf",
     displayName: "Fundamentals of Java – Pirple",
-    file: "/src/certificates/Pirple_JAVA.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Pirple_JAVA.pdf`,
     date: "29-12-2021",
     verification: "",
-    tags: ["Java", "OOP", "GUI", "Programming", "Pirple"],
+    tags: ["Java", "OOP", "GUI", "Programming", "Pirple"]
   },
   {
     name: "Pirple_Python.pdf",
     displayName: "Python is Easy – Pirple",
-    file: "/src/certificates/Pirple_Python.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Pirple_Python.pdf`,
     date: "25-09-2021",
     verification: "",
-    tags: ["Python", "Programming", "Pirple", "OOP"],
+    tags: ["Python", "Programming", "Pirple", "OOP"]
   },
   {
     name: "Automobile Sketching _ Styling.pdf",
     displayName: "Automobile Sketching & Styling",
-    file: "/src/certificates/Automobile Sketching _ Styling.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Automobile Sketching _ Styling.pdf`,
     date: "10-10-2021",
     verification: "",
-    tags: ["Automotive Design", "Sketching", "Styling", "Concept Development"],
+    tags: ["Automotive Design", "Sketching", "Styling", "Concept Development"]
   },
   {
     name: "MITx 6.00.1x Certificate _ edX_new.pdf",
     displayName: "Introduction to Computer Science Using Python – MITx",
-    file: "/src/certificates/MITx 6.00.1x Certificate _ edX_new.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/MITx 6.00.1x Certificate _ edX_new.pdf`,
     date: "29-10-2021",
     verification: "https://courses.edx.org/certificates/f5d53ed0f73a47c0a93b66e3feea5adf",
-    tags: ["Python", "Computer Science", "MITx", "Programming"],
+    tags: ["Python", "Computer Science", "MITx", "Programming"]
   },
   {
     name: "MATLAB OnRamp Certificate.pdf",
     displayName: "MATLAB OnRamp",
-    file: "/src/certificates/MATLAB OnRamp Certificate.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/MATLAB OnRamp Certificate.pdf`,
     date: "27-08-2021",
     verification: "",
-    tags: ["MATLAB", "Programming", "MathWorks", "Training"],
+    tags: ["MATLAB", "Programming", "MathWorks", "Training"]
   },
   {
     name: "Introduction to CFD using MATLAB and OpenFOAM.pdf",
     displayName: "Introduction to CFD using MATLAB and OpenFOAM",
-    file: "/src/certificates/Introduction to CFD using MATLAB and OpenFOAM.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Introduction to CFD using MATLAB and OpenFOAM.pdf`,
     date: "10-07-2021",
     verification: "",
-    tags: ["CFD", "MATLAB", "OpenFOAM", "Simulation"],
+    tags: ["CFD", "MATLAB", "OpenFOAM", "Simulation"]
   },
   {
     name: "NPTEL_ML_FM.pdf",
     displayName: "Machine Learning – NPTEL",
-    file: "/src/certificates/NPTEL_ML_FM.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/NPTEL_ML_FM.pdf`,
     date: "01-06-2021",
     verification: "",
-    tags: ["Machine Learning", "NPTEL", "Data Science"],
+    tags: ["Machine Learning", "NPTEL", "Data Science"]
   },
   {
     name: "Udemy_ANSYS_Spaceclaim_Direct_modeller.pdf",
     displayName: "ANSYS SpaceClaim Direct Modeler – Udemy",
-    file: "/src/certificates/Udemy_ANSYS_Spaceclaim_Direct_modeller.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Udemy_ANSYS_Spaceclaim_Direct_modeller.pdf`,
     date: "01-06-2020",
     verification: "",
-    tags: ["ANSYS", "SpaceClaim", "CAD", "Direct Modeling", "Udemy"],
+    tags: ["ANSYS", "SpaceClaim", "CAD", "Direct Modeling", "Udemy"]
   },
   {
     name: "Faurecia_Rewards_and_Recognition.pdf",
     displayName: "Faurecia Rewards and Recognition",
-    file: "/src/certificates/Faurecia_Rewards_and_Recognition.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Faurecia_Rewards_and_Recognition.pdf`,
     date: "15-12-2020",
     verification: "",
-    tags: ["Industry Experience", "Recognition", "Faurecia"],
+    tags: ["Industry Experience", "Recognition", "Faurecia"]
   },
   {
     name: "BHEL Internship.pdf",
     displayName: "BHEL Internship",
-    file: "/src/certificates/BHEL Internship.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/BHEL Internship.pdf`,
     date: "01-01-2020",
     verification: "",
-    tags: ["Internship", "Thermal Engineering", "Power Systems", "Industry Experience"],
+    tags: ["Internship", "Thermal Engineering", "Power Systems", "Industry Experience"]
   },
   {
     name: "Gesture Based Robotics certificate.pdf",
     displayName: "Gesture Based Robotics – Skyfi Labs",
-    file: "/src/certificates/Gesture Based Robotics certificate.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/Gesture Based Robotics certificate.pdf`,
     date: "11-10-2015",
     verification: "https://www.skyfilabs.com/verify-certificate/26170040",
-    tags: ["Robotics", "Gesture Control", "Workshop", "Embedded Systems"],
+    tags: ["Robotics", "Gesture Control", "Workshop", "Embedded Systems"]
   },
   {
     name: "caddcentre_certificate_1.pdf",
     displayName: "Master Diploma in Product Design and Analysis – CADD Centre",
-    file: "/src/certificates/caddcentre_certificate_1.pdf",
+    file: `${import.meta.env.BASE_URL}certificates/caddcentre_certificate_1.pdf`,
     date: "29-10-2018",
     verification: "",
-    tags: ["CAD", "FEA", "CATIA", "NX CAD", "ANSYS", "HyperMesh", "Product Design", "GD&T"],
+    tags: ["CAD", "FEA", "CATIA", "NX CAD", "ANSYS", "HyperMesh", "Product Design", "GD&T"]
   }
 ];
+
 
 
 const CertificatesSection = () => {
