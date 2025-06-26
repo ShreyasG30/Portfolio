@@ -16,7 +16,7 @@ function App() {
     <>
       <StarBackground />
       <ThemeToggle />
-        <BrowserRouter>
+        <BrowserRouter  basename="/Shreyas-Girish-Portfolio-react-tailwind">
         <Navbar />
         <Routes>
           <Route index element={<Home />} />
