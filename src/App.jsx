@@ -8,8 +8,14 @@ import { StarBackground } from "@/components/StarBackground";
 import ProjectDetail from "./pages/ProjectDetail";
 import Project_01 from "./pages/Project_01"; 
 import { FooterSection } from "./components/FooterSection";
+import ScrollToTop from "./components/ScrollToTop";
 
-
+// Scroll to saved route after reload
+const redirectPath = sessionStorage.redirect;
+if (redirectPath) {
+  sessionStorage.removeItem("redirect");
+  window.history.replaceState(null, "", redirectPath);
+}
 
 function App() {
   return (
@@ -17,6 +23,7 @@ function App() {
       <StarBackground />
       <ThemeToggle />
         <BrowserRouter  basename="/Portfolio">
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route index element={<Home />} />

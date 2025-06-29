@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ...existing imports...
 
+const img = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const projectData = {
   title: "Anchor Assembly Simulation",
   description: "Finite Element Analysis (FEA) of a post-tensioned anchor system under axial load to evaluate displacement and stress distribution across cables, wedges, and anchor block.",
-  image: "/Project_01/Project_01.png", 
+  image: img("/Project_01/Project_01.png"),
   tags: ["FEA", "ANSYS", "Structural", "Post-Tensioning"],
 };
 
@@ -116,19 +118,6 @@ function Project_01() {
 
          <ProjectHeader project={projectData} />
 
-        
-
-        {/* Report Heading
-        <div className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-primary mb-1 text-left w-full">
-            Anchor Simulation
-          </h1>
-          <div className="text-xl text-primary/80 font-medium mb-2 text-left w-full">
-            Technical report
-          </div>
-          <hr className="border-primary/30 mb-4 w-full" />
-        </div> */}
-
         {/* 1. Introduction */}
         <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-2 text-left flex items-center gap-2">
@@ -157,10 +146,10 @@ function Project_01() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <ImgCol
-              src="/Project_01/Anchor assembly.png"
+              src={img("/Project_01/Anchor assembly.png")}
               alt="Anchor assembly"
               caption="Figure 1. Anchor assembly"
-              onClick={() => handleImgClick("/Project_01/Anchor assembly.png", "Anchor assembly")}
+              onClick={() => handleImgClick(img("/Project_01/Anchor assembly.png"), "Anchor assembly")}
             />
             <div>
               <p className="mb-2 text-left">
@@ -193,22 +182,22 @@ function Project_01() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             <ImgCol
-              src="/Project_01/P01_Figure_03.png"
+              src={img("/Project_01/P01_Figure_03.png")}
               alt="Bottom Plate"
               caption="Figure 3. Dimensions of the Bottom Fixed Plate"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_03.png", "Bottom Plate")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_03.png"), "Bottom Plate")}
             />
             <ImgCol
-              src="/Project_01/P01_Figure_04.png"
+              src={img("/Project_01/P01_Figure_04.png")}
               alt="Bottom Plate Section"
               caption="Figure 3. Dimensions of the Bottom Fixed Plate (Section)"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_04.png", "Bottom Plate Section")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_04.png"), "Bottom Plate Section")}
             />
             <ImgCol
-              src="/Project_01/P01_Figure_05.png"
+              src={img("/Project_01/P01_Figure_05.png")}
               alt="Bottom Plate Dimensions"
               caption="Figure 3. Dimensions of the Bottom Fixed Plate (Drawing)"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_05.png", "Bottom Plate Dimensions")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_05.png"), "Bottom Plate Dimensions")}
             />
           </div>
         </section>
@@ -228,10 +217,10 @@ function Project_01() {
               </p>
             </div>
             <ImgCol
-              src="/Project_01/P01_Figure_06.png"
+              src={img("/Project_01/P01_Figure_06.png")}
               alt="Mesh Representation"
               caption="Figure 9. Mesh Representation"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_06.png", "Mesh Representation")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_06.png"), "Mesh Representation")}
             />
           </div>
           {/* 4.3 Boundary Conditions */}
@@ -247,10 +236,10 @@ function Project_01() {
               </p>
             </div>
             <ImgCol
-              src="/Project_01/P01_Figure_07.png"
+              src={img("/Project_01/P01_Figure_07.png")}
               alt="Fixed Boundary Condition"
               caption="Figure 10. Fixed Boundary Condition"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_07.png", "Fixed Boundary Condition")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_07.png"), "Fixed Boundary Condition")}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
@@ -261,10 +250,10 @@ function Project_01() {
               </p>
             </div>
             <ImgCol
-              src="/Project_01/P01_Figure_08.png"
+              src={img("/Project_01/P01_Figure_08.png")}
               alt="UDL Condition"
               caption="Figure 11. UDL Condition"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_08.png", "UDL Condition")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_08.png"), "UDL Condition")}
             />
           </div>
         </section>
@@ -287,38 +276,38 @@ function Project_01() {
               </p>
             </div>
             <ImgCol
-              src="/Project_01/P01_Figure_09.png"
+              src={img("/Project_01/P01_Figure_09.png")}
               alt="Total Deformation of the Assembly"
               caption="Figure 12. Total Deformation of the Assembly"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_09.png", "Total Deformation of the Assembly")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_09.png"), "Total Deformation of the Assembly")}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <ImgCol
-              src="/Project_01/P01_Figure_10.png"
+              src={img("/Project_01/P01_Figure_10.png")}
               alt="Deformation of Anchor"
               caption="Figure 13. Deformation of Anchor"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_10.png", "Deformation of Anchor")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_10.png"), "Deformation of Anchor")}
             />
             <ImgCol
-              src="/Project_01/P01_Figure_11.png"
+              src={img("/Project_01/P01_Figure_11.png")}
               alt="Deformation of Outer Wedge"
               caption="Figure 14. Deformation of Outer Wedge"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_11.png", "Deformation of Outer Wedge")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_11.png"), "Deformation of Outer Wedge")}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <ImgCol
-              src="/Project_01/P01_Figure_12.png"
+              src={img("/Project_01/P01_Figure_12.png")}
               alt="Deformation of Inner Wedge"
               caption="Figure 15. Deformation of Inner Wedge"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_12.png", "Deformation of Inner Wedge")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_12.png"), "Deformation of Inner Wedge")}
             />
             <ImgCol
-              src="/Project_01/P01_Figure_13.png"
+              src={img("/Project_01/P01_Figure_13.png")}
               alt="Deformation of Cable"
               caption="Figure 16. Deformation of Cable"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_13.png", "Deformation of Cable")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_13.png"), "Deformation of Cable")}
             />
           </div>
           {/* 5.2 Stress */}
@@ -330,38 +319,38 @@ function Project_01() {
               </p>
             </div>
             <ImgCol
-              src="/Project_01/P01_Figure_14.png"
+              src={img("/Project_01/P01_Figure_14.png")}
               alt="Stress Distribution of the Assembly"
               caption="Figure 17. Stress Distribution of the Assembly"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_14.png", "Stress Distribution of the Assembly")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_14.png"), "Stress Distribution of the Assembly")}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <ImgCol
-              src="/Project_01/P01_Figure_15.png"
+              src={img("/Project_01/P01_Figure_15.png")}
               alt="Stress Distribution of Anchor"
               caption="Figure 18. Stress Distribution of Anchor"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_15.png", "Stress Distribution of Anchor")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_15.png"), "Stress Distribution of Anchor")}
             />
             <ImgCol
-              src="/Project_01/P01_Figure_16.png"
+              src={img("/Project_01/P01_Figure_16.png")}
               alt="Stress Distribution of Outer Wedge"
               caption="Figure 19. Stress Distribution of Outer Wedge"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_16.png", "Stress Distribution of Outer Wedge")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_16.png"), "Stress Distribution of Outer Wedge")}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
             <ImgCol
-              src="/Project_01/P01_Figure_17.png"
+              src={img("/Project_01/P01_Figure_17.png")}
               alt="Stress Distribution of Inner Wedge"
               caption="Figure 20. Stress Distribution of Inner Wedge"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_17.png", "Stress Distribution of Inner Wedge")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_17.png"), "Stress Distribution of Inner Wedge")}
             />
             <ImgCol
-              src="/Project_01/P01_Figure_18.png"
+              src={img("/Project_01/P01_Figure_18.png")}
               alt="Stress Distribution of Cable"
               caption="Figure 21. Stress Distribution of Cable"
-              onClick={() => handleImgClick("/Project_01/P01_Figure_18.png", "Stress Distribution of Cable")}
+              onClick={() => handleImgClick(img("/Project_01/P01_Figure_18.png"), "Stress Distribution of Cable")}
             />
           </div>
         </section>
