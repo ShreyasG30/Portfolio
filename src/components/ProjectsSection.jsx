@@ -192,7 +192,6 @@ export const ProjectsSection = () => {
 
   // Clear all filters
   const clearFilters = () => setSelectedTags([]);
-
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="w-full max-w-[95rem] px-6 mx-auto">
@@ -202,29 +201,20 @@ export const ProjectsSection = () => {
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           Here are some of my recent projects that showcase my skills and expertise.
         </p>
-
+  
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
           {allTags.map(tag => (
             <button
               key={tag}
               onClick={() => toggleTag(tag)}
-              className={`
-                px-6 py-2 rounded-full font-semibold text-lg border transition border-primary/30
-                ${
-                  selectedTags.includes(tag)
-                    ? "bg-primary text-white shadow"
-                    : `
-                        bg-white text-primary
-                        hover:bg-primary hover:text-white hover:shadow-lg
-                        dark:bg-white/20 dark:text-white
-                        dark:hover:bg-primary dark:hover:text-white
-                      `
-                }
-                dark:border-white/30
-              `}
-              style={{ minWidth: "160px" }}
-            >
+              className={[
+                "px-6 py-2 rounded-full font-semibold text-lg border transition border-primary/30 dark:border-white/30",
+                selectedTags.includes(tag)
+                  ? "bg-primary text-white shadow"
+                  : "bg-white text-primary hover:bg-primary hover:text-white hover:shadow-lg"
+              ].join(" ")}>
+                
               {tag}
             </button>
           ))}
