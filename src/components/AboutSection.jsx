@@ -2,19 +2,19 @@ import { Briefcase, Code, User } from "lucide-react";
 import { useState } from "react";
 
 const certificates = [
-	{ key: "M", label: "MK4", file: "/Experience_Letters/Mekano4.pdf" },
-	{ key: "CS", label: "CSolar", file: "/Experience_Letters/CSolar.pdf" },
-	{ key: "F", label: "Faurecia (Forvia)", file: "/Experience_Letters/Forvia.pdf" },
+	{ key: "M", label: "MK4", file: `${import.meta.env.BASE_URL}Experience_Letters/Mekano4.pdf` },
+	{ key: "CS", label: "CSolar", file: `${import.meta.env.BASE_URL}Experience_Letters/CSolar.pdf` },
+	{ key: "F", label: "Faurecia (Forvia)", file: `${import.meta.env.BASE_URL}Experience_Letters/Forvia.pdf` },
 	{
 		key: "C",
 		label: "Copes tech India Pvt Ltd",
-		file: "/Experience_Letters/Copes.pdf",
+		file: `${import.meta.env.BASE_URL}Experience_Letters/Copes.pdf`,
 	},
-	{ key: "B", label: "BHEL", file: "/Experience_Letters/BHEL.pdf" },
+	{ key: "B", label: "BHEL", file: `${import.meta.env.BASE_URL}Experience_Letters/BHEL.pdf` },
 	{
 		key: "T",
 		label: "Triveni Gears",
-		file: "/Experience_Letters/Triveni_Gears.pdf",
+		file: `${import.meta.env.BASE_URL}Experience_Letters/Triveni_Gears.pdf`,
 	},
 ];
 

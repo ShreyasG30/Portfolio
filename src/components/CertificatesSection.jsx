@@ -38,7 +38,7 @@ const certificates = [
     displayName: "Advanced CFD using ANSYS Fluent",
     file: `${import.meta.env.BASE_URL}certificates/Advanced CFD using ANSYS Fluent.pdf`,
     date: "10-07-2022",
-    verification: "",
+    verification: "https://skill-lync.com/certification/individual/89lqoc42rieu5k7d",
     tags: ["CFD", "ANSYS Fluent", "Simulation"]
   },
   {
@@ -46,7 +46,7 @@ const certificates = [
     displayName: "Advanced CFD for IC Engine Applications",
     file: `${import.meta.env.BASE_URL}certificates/Advanced CFD for IC Engine Applications.pdf`,
     date: "20-06-2022",
-    verification: "",
+    verification: "https://skill-lync.com/certification/individual/C6lhXp0YXlzOd3ga",
     tags: ["CFD", "IC Engine", "Combustion", "Turbulence Modeling"]
   },
   {
@@ -54,7 +54,7 @@ const certificates = [
     displayName: "Automobile Fuel System Technologies – Literature Survey",
     file: `${import.meta.env.BASE_URL}certificates/A Literature Survey on Automobile fuel system technologies.pdf`,
     date: "15-04-2022",
-    verification: "",
+    verification: "https://core.ac.uk/download/228553945.pdf",
     tags: ["Automotive", "Fuel Systems", "IC Engine", "Literature Review"]
   },
   {
@@ -62,7 +62,7 @@ const certificates = [
     displayName: "C++ for the Rest of Us – Pirple",
     file: `${import.meta.env.BASE_URL}certificates/Pirple_C++.pdf`,
     date: "13-01-2022",
-    verification: "",
+    verification: "https://www.pirple.com/certificates/rtfyh6hk8f",
     tags: ["C++", "OOP", "Programming", "Pirple"]
   },
   {
@@ -70,7 +70,7 @@ const certificates = [
     displayName: "Fundamentals of Java – Pirple",
     file: `${import.meta.env.BASE_URL}certificates/Pirple_JAVA.pdf`,
     date: "29-12-2021",
-    verification: "",
+    verification: "https://www.pirple.com/certificates/fbl07sxcp8",
     tags: ["Java", "OOP", "GUI", "Programming", "Pirple"]
   },
   {
@@ -78,7 +78,7 @@ const certificates = [
     displayName: "Python is Easy – Pirple",
     file: `${import.meta.env.BASE_URL}certificates/Pirple_Python.pdf`,
     date: "25-09-2021",
-    verification: "",
+    verification: "https://www.pirple.com/certificates/bn7ylhjieo",
     tags: ["Python", "Programming", "Pirple", "OOP"]
   },
   {
@@ -110,7 +110,7 @@ const certificates = [
     displayName: "Introduction to CFD using MATLAB and OpenFOAM",
     file: `${import.meta.env.BASE_URL}certificates/Introduction to CFD using MATLAB and OpenFOAM.pdf`,
     date: "10-07-2021",
-    verification: "",
+    verification: "https://skill-lync.com/certification/individual/WS67AFGQZRGmNGTs",
     tags: ["CFD", "MATLAB", "OpenFOAM", "Simulation"]
   },
   {
@@ -118,7 +118,7 @@ const certificates = [
     displayName: "Machine Learning – NPTEL",
     file: `${import.meta.env.BASE_URL}certificates/NPTEL_ML_FM.pdf`,
     date: "01-06-2021",
-    verification: "",
+    verification: "https://elearn.nptel.ac.in/Ecertificate/?q=NP24WS270127948053",
     tags: ["Machine Learning", "NPTEL", "Data Science"]
   },
   {
@@ -126,7 +126,7 @@ const certificates = [
     displayName: "ANSYS SpaceClaim Direct Modeler – Udemy",
     file: `${import.meta.env.BASE_URL}certificates/Udemy_ANSYS_Spaceclaim_Direct_modeller.pdf`,
     date: "01-06-2020",
-    verification: "",
+    verification: "https://www.udemy.com/certificate/UC-af7c81bf-aeb0-4749-a542-2f83aa88d77b/",
     tags: ["ANSYS", "SpaceClaim", "CAD", "Direct Modeling", "Udemy"]
   },
   {
@@ -136,14 +136,6 @@ const certificates = [
     date: "15-12-2020",
     verification: "",
     tags: ["Industry Experience", "Recognition", "Faurecia"]
-  },
-  {
-    name: "BHEL Internship.pdf",
-    displayName: "BHEL Internship",
-    file: `${import.meta.env.BASE_URL}certificates/BHEL Internship.pdf`,
-    date: "01-01-2020",
-    verification: "",
-    tags: ["Internship", "Thermal Engineering", "Power Systems", "Industry Experience"]
   },
   {
     name: "Gesture Based Robotics certificate.pdf",
@@ -158,7 +150,7 @@ const certificates = [
     displayName: "Master Diploma in Product Design and Analysis – CADD Centre",
     file: `${import.meta.env.BASE_URL}certificates/caddcentre_certificate_1.pdf`,
     date: "29-10-2018",
-    verification: "",
+    verification: "https://registry.caddcentre.com/ghbji.php?asdsad=RWx0RTRqenE0cEFyRHhsYSsvV3FRb2F2Y3kvMnFsZ2JrcFhXRFM4eXZHOXFrUEN5ME92TitmVGQvaGJzQjFsaQ==",
     tags: ["CAD", "FEA", "CATIA", "NX CAD", "ANSYS", "HyperMesh", "Product Design", "GD&T"]
   }
 ];
