@@ -1,6 +1,24 @@
-<!-- public/404.html -->
-<script>
-  // GitHub Pages SPA redirect fix
-  sessionStorage.redirect = location.pathname;
-  location.replace("/");
-</script>
+<!--
+  404.html
+
+  This file provides a simple redirect to the root of the application. When a user
+  refreshes a page served by a client‑side router (e.g. React Router) on
+  GitHub Pages or other static hosts, the server may not understand the deep
+  link and instead return a 404 error. To ensure the app continues to work
+  correctly after a refresh, this HTML file immediately redirects any 404
+  requests back to the root of the site where the client‑side router can take
+  over and render the appropriate content.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf‑8" />
+    <meta http-equiv="refresh" content="0; url=/" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <p>If you are not redirected automatically, <a href="/">click here</a>.</p>
+  </body>
+</html>
