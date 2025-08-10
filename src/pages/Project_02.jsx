@@ -3,14 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { StarBackground } from "../components/StarBackground";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Example project data – update as needed
+// ...existing imports...
+
 const projectData = {
-  title: "Automated Weather Station Dashboard",
-  description:
-    "A full-stack web application for real-time monitoring and visualization of weather data collected from IoT-based weather stations. Features live charts, historical data analysis, and alert notifications.",
-  image: "/Project_02/Project_02.png",
-  tags: ["React", "Node.js", "IoT", "Data Visualization"],
+  title: "Anchor Assembly Simulation",
+  description: "Finite Element Analysis (FEA) of a post-tensioned anchor system under axial load to evaluate displacement and stress distribution across cables, wedges, and anchor block.",
+  image: "/Project_01/Project_01.png", 
+  tags: ["FEA", "ANSYS", "Structural", "Post-Tensioning"],
 };
+
 
 function ProjectHeader({ project }) {
   return (
@@ -40,6 +41,7 @@ function ProjectHeader({ project }) {
     </div>
   );
 }
+
 
 // Modal animation
 const modalVariants = {
@@ -89,7 +91,6 @@ function ImgCol({ src, alt, caption, onClick }) {
     </div>
   );
 }
-
 function Project_02() {
   const navigate = useNavigate();
   const [modalImg, setModalImg] = useState({ src: null, alt: "" });
@@ -110,7 +111,6 @@ function Project_02() {
         >
           &larr; Back to Home
         </button>
-
         <ProjectHeader project={projectData} />
 
         {/* 1. Introduction */}
@@ -120,146 +120,22 @@ function Project_02() {
             <span>Introduction</span>
           </h2>
           <p className="mb-3 text-left">
-            This project focuses on building a scalable and interactive dashboard for monitoring weather parameters such as temperature, humidity, wind speed, and rainfall. The system collects data from multiple IoT-enabled weather stations and provides real-time visualization and analytics for users.
+            The model aims to understand the structural integrity based on the load application. In this case study, we study the effect of applied load on the anchor assembly and understand the behavior of the anchor to the applied load. A FEM study is performed to analyze it:
           </p>
           <ol className="list-decimal list-inside mb-3 text-left">
-            <li>Real-time data acquisition from remote sensors.</li>
-            <li>Interactive charts and historical data analysis.</li>
-            <li>Automated alerts for extreme weather conditions.</li>
+            <li>Understand the deformation due to the applied load on the cable strands.</li>
+            <li>Understand the stress induced in the anchor due to the applied load.</li>
           </ol>
           <div className="mb-3 text-left">
             <span className="font-bold bg-yellow-300 text-black px-2 py-1 rounded">
-              Note: The dashboard is optimized for both desktop and mobile devices.
+              Note: The mesh considered is too coarse due to computational restraints, thus the results obtained may be too approximated.
             </span>
           </div>
         </section>
-
-        {/* 2. System Architecture */}
-        <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-left flex items-center gap-2">
-            <span className="text-primary">2</span>
-            <span>System Architecture</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <ImgCol
-              src="/Project_02/architecture.png"
-              alt="System Architecture"
-              caption="Figure 1. System Architecture Overview"
-              onClick={() => handleImgClick("/Project_02/architecture.png", "System Architecture")}
-            />
-            <div>
-              <p className="mb-2 text-left">
-                The architecture consists of IoT weather stations that transmit data to a cloud server via MQTT. The backend processes and stores the data in a time-series database, while the frontend dashboard fetches and visualizes the data in real time.
-              </p>
-              <ol className="list-decimal list-inside space-y-1 text-left">
-                <li>
-                  <span className="font-semibold text-primary">IoT Weather Stations</span> (ESP32-based)
-                </li>
-                <li>
-                  <span className="font-semibold text-primary">Backend API</span> (Node.js, Express)
-                </li>
-                <li>
-                  <span className="font-semibold text-primary">Frontend Dashboard</span> (React, Chart.js)
-                </li>
-                <li>
-                  <span className="font-semibold text-primary">Database</span> (InfluxDB)
-                </li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Features */}
-        <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-left flex items-center gap-2">
-            <span className="text-primary">3</span>
-            <span>Key Features</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-            <ImgCol
-              src="/Project_02/feature_live.png"
-              alt="Live Data"
-              caption="Figure 2. Live Weather Data"
-              onClick={() => handleImgClick("/Project_02/feature_live.png", "Live Data")}
-            />
-            <ImgCol
-              src="/Project_02/feature_history.png"
-              alt="Historical Data"
-              caption="Figure 3. Historical Data Analysis"
-              onClick={() => handleImgClick("/Project_02/feature_history.png", "Historical Data")}
-            />
-            <ImgCol
-              src="/Project_02/feature_alerts.png"
-              alt="Alerts"
-              caption="Figure 4. Automated Alerts"
-              onClick={() => handleImgClick("/Project_02/feature_alerts.png", "Alerts")}
-            />
-          </div>
-        </section>
-
-        {/* 4. Implementation Details */}
-        <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-left flex items-center gap-2">
-            <span className="text-primary">4</span>
-            <span>Implementation Details</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
-            <div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 text-left">4.1 Backend</h3>
-              <p className="mb-4 text-left">
-                The backend is built using Node.js and Express, providing RESTful APIs for data retrieval and alert management. MQTT is used for efficient real-time data ingestion from the weather stations.
-              </p>
-            </div>
-            <ImgCol
-              src="/Project_02/backend.png"
-              alt="Backend API"
-              caption="Figure 5. Backend API Overview"
-              onClick={() => handleImgClick("/Project_02/backend.png", "Backend API")}
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
-            <div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 text-left">4.2 Frontend</h3>
-              <p className="mb-4 text-left">
-                The frontend dashboard is developed in React, featuring responsive design and interactive charts using Chart.js. Users can view live data, filter by date range, and receive notifications for critical events.
-              </p>
-            </div>
-            <ImgCol
-              src="/Project_02/frontend.png"
-              alt="Frontend Dashboard"
-              caption="Figure 6. Frontend Dashboard"
-              onClick={() => handleImgClick("/Project_02/frontend.png", "Frontend Dashboard")}
-            />
-          </div>
-        </section>
-
-        {/* 5. Results and Discussion */}
-        <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-left flex items-center gap-2">
-            <span className="text-primary">5</span>
-            <span>Results and Discussion</span>
-          </h2>
-          <p className="mb-4 text-left">
-            The dashboard successfully displays real-time and historical weather data from multiple stations. Automated alerts have improved response times to extreme weather events, and the system has proven reliable in continuous operation.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
-            <ImgCol
-              src="/Project_02/result_1.png"
-              alt="Live Dashboard"
-              caption="Figure 7. Live Dashboard in Action"
-              onClick={() => handleImgClick("/Project_02/result_1.png", "Live Dashboard")}
-            />
-            <ImgCol
-              src="/Project_02/result_2.png"
-              alt="Alert Example"
-              caption="Figure 8. Example of Alert Notification"
-              onClick={() => handleImgClick("/Project_02/result_2.png", "Alert Example")}
-            />
-          </div>
-        </section>
-      </div>
-    </div>
-  );
+        
+        </div>
+        </div>
+  )
 }
 
 export default Project_02;
