@@ -13,32 +13,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found</title>
-  <script>
-    // Handle GitHub Pages SPA routing
-    (function() {
-      // Get the current path excluding the '/Portfolio' prefix
-      const path = window.location.pathname.replace('/Portfolio', '');
-      const segment = path.split('/')[1];  // Get first path segment after base
-      
-      // Only redirect if we're not at the root
-      if (segment) {
-        // Store the full path in sessionStorage
-        sessionStorage.setItem('redirect', path);
-        
-        // Redirect to the base URL while preserving query params and hash
-        window.location.href = '/Portfolio/' + 
-          (window.location.search ? window.location.search + '&' : '?') + 
-          'path=' + encodeURIComponent(path) + 
-          window.location.hash;
-      }
-    })();
+  <title>Single Page Apps for GitHub Pages</title>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // https://github.com/rafgraph/spa-github-pages
+    var pathSegmentsToKeep = 1;
+
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
   </script>
 </head>
 <body>
-  <div style="text-align: center; padding: 20px;">
-    <h1>Redirecting...</h1>
-    <p>If you are not redirected automatically, please click <a href="/Portfolio/">here</a>.</p>
-  </div>
 </body>
 </html>
