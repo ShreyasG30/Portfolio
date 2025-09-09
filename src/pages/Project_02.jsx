@@ -1,13 +1,101 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { StarBackground } from "../components/StarBackground";
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { FileLoader } from 'three/examples/jsm/loaders/FileLoader';
 
 const projectData = {
-  title: "Anchor Assembly Simulation",
-  description: "Finite Element Analysis (FEA) of a post-tensioned anchor system under axial load to evaluate displacement and stress distribution across cables, wedges, and anchor block.",
-  image: `${import.meta.env.BASE_URL}Project_02/Project_02.png`,
-  tags: ["FEA", "ANSYS", "Structural", "Post-Tensioning"],
+  title: "Interactive Car Seat Design",
+  description: "A detailed 3D CAD model of an automotive seat with interactive viewing capabilities. Users can explore the design through rotation, zoom, and pan controls while examining the structural components and ergonomic features.",
+  image: `${import.meta.env.BASE_URL}Project_02/carseat_preview.png`,
+  tags: ["CAD", "3D Modeling", "Three.js", "Interactive"],
 };
+
+function ModelViewer() {
+  const mountRef = useRef(null);
+  const sceneRef = useRef(null);
+
+  useEffect(() => {
+    // Setup scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1a1a1a);
+    sceneRef.current = scene;
+
+    // Setup camera
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 5;
+
+    // Setup renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth * 0.8, window.innerHeight * 0.6);
+    mountRef.current.appendChild(renderer.domElement);
+
+    // Add lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    // Add controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    // Load the STL model
+    const loader = new THREE.FileLoader();
+    loader.load(
+      `${import.meta.env.BASE_URL}models/car_seat.igs`,
+      (data) => {
+        // Handle the loaded data
+        console.log('Model loaded successfully');
+        // You'll need to parse the IGES data here
+      },
+      (xhr) => {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+      },
+      (error) => {
+        console.error('Error loading model:', error);
+      }
+    );
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle window resize
+    function handleResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth * 0.8, window.innerHeight * 0.6);
+    }
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      mountRef.current?.removeChild(renderer.domElement);
+      renderer.dispose();
+    };
+  }, []);
+
+  return (
+    <div 
+      ref={mountRef} 
+      className="w-full h-[60vh] rounded-lg overflow-hidden border-2 border-white/20"
+    />
+  );
+}
 
 function ProjectHeader({ project }) {
   return (
@@ -58,26 +146,34 @@ function Project_02() {
 
         <ProjectHeader project={projectData} />
 
-        {/* 1. Introduction */}
+        {/* 3D Model Viewer */}
         <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold mb-2 text-left flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-4 text-left flex items-center gap-2">
             <span className="text-primary">1</span>
-            <span>Introduction</span>
+            <span>Interactive 3D Model</span>
           </h2>
-          <p className="mb-3 text-left">
-            The model aims to understand the structural integrity based on the load application. In this case study, we study the effect of applied load on the anchor assembly and understand the behavior of the anchor to the applied load. A FEM study is performed to analyze it:
-          </p>
-          <ol className="list-decimal list-inside mb-3 text-left">
-            <li>Understand the deformation due to the applied load on the cable strands.</li>
-            <li>Understand the stress induced in the anchor due to the applied load.</li>
-          </ol>
-          <div className="mb-3 text-left">
-            <span className="font-bold bg-yellow-300 text-black px-2 py-1 rounded">
-              Note: The mesh considered is too coarse due to computational restraints, thus the results obtained may be too approximated.
-            </span>
+          <ModelViewer />
+          <div className="mt-4 text-sm text-center text-muted-foreground">
+            Use mouse to rotate. Scroll to zoom. Right-click to pan.
           </div>
         </section>
-        
+
+        {/* Project Description */}
+        <section className="w-full mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-6">
+          <h2 className="text-2xl font-bold mb-2 text-left flex items-center gap-2">
+            <span className="text-primary">2</span>
+            <span>Project Overview</span>
+          </h2>
+          <p className="mb-3 text-left">
+            This project showcases a detailed 3D CAD model of an automotive seat designed with emphasis on:
+          </p>
+          <ul className="list-disc list-inside mb-3 text-left space-y-2">
+            <li>Ergonomic design principles for optimal comfort</li>
+            <li>Structural integrity and safety considerations</li>
+            <li>Manufacturing feasibility and assembly optimization</li>
+            <li>Material selection for durability and cost-effectiveness</li>
+          </ul>
+        </section>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ function App() {
           <Route index element={<Home />} />
           {/* <Route path="/projects" element={<AllProjects />}/> */}
           {/* <Route path="projects/1" element={<Project_01 />} /> */}
-          {/* <Route path="projects/2" element={<Project_02 />} /> */}
+          <Route path="projects/2" element={<Project_02 />} />
           <Route path="projects/:projectId" element={<ProjectDetail />} />
           <Route path="*" element={<NotFound />} />
           
