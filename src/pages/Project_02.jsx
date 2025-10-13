@@ -152,28 +152,191 @@ function Chip({ children }) {
 }
 
 // ──────────────────────────────────────────────────────────────
-// Model Viewer with toolbar + progress
+// // Model Viewer with toolbar + progress
+// function ModelViewerCard({ src, poster }) {
+//   const ref = useRef(null);
+//   const [autoRotate, setAutoRotate] = useState(true);
+//   const [exposure, setExposure] = useState(1);
+//   const [shadowIntensity, setShadowIntensity] = useState(0.8);
+//   const [progress, setProgress] = useState(0);
+//   const [loaded, setLoaded] = useState(false);
+
+//   // Progress & load listeners
+//   useEffect(() => {
+//     const el = ref.current;
+//     if (!el) return;
+
+//     const onProgress = (e) => {
+//       const p = e?.detail?.totalProgress ?? 0;
+//       setProgress(p);
+//     };
+//     const onLoad = () => {
+//       setLoaded(true);
+//       setProgress(1);
+//     };
+
+//     el.addEventListener("progress", onProgress);
+//     el.addEventListener("load", onLoad);
+//     return () => {
+//       el.removeEventListener("progress", onProgress);
+//       el.removeEventListener("load", onLoad);
+//     };
+//   }, []);
+
+//   // Keep element attributes in sync with state
+//   useEffect(() => {
+//     const el = ref.current;
+//     if (!el) return;
+//     // toggle auto-rotate attribute
+//     if (autoRotate) el.setAttribute("auto-rotate", "");
+//     else el.removeAttribute("auto-rotate");
+//     // exposure & shadows
+//     el.setAttribute("exposure", String(exposure));
+//     el.setAttribute("shadow-intensity", String(shadowIntensity));
+//   }, [autoRotate, exposure, shadowIntensity]);
+
+//   const toggleRotate = () => setAutoRotate((v) => !v);
+
+//   const resetView = () => {
+//     const el = ref.current;
+//     if (!el) return;
+//     // model-viewer provides a helper on the element in modern versions:
+//     if (typeof el.resetTurntableRotation === "function") {
+//       el.resetTurntableRotation();
+//     }
+//     // also “jump” the camera to its goal to avoid easing delay
+//     if (typeof el.jumpCameraToGoal === "function") {
+//       el.jumpCameraToGoal();
+//     }
+//     // as a fallback, you could also set attributes:
+//     // el.setAttribute("camera-orbit", "auto");
+//     // el.setAttribute("camera-target", "auto");
+//   };
+
+//   const goFullscreen = () => {
+//     const el = ref.current;
+//     if (!el) return;
+//     if (document.fullscreenElement) {
+//       document.exitFullscreen?.();
+//     } else {
+//       el.requestFullscreen?.();
+//     }
+//   };
+
+//   return (
+//     <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black/80">
+//       {/* Toolbar */}
+//       <div className="absolute top-3 right-3 z-10 flex items-center gap-2">
+//         <button
+//           onClick={toggleRotate}
+//           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm"
+//           title="Toggle auto-rotate"
+//         >
+//           {autoRotate ? "Pause" : "Rotate"}
+//         </button>
+//         <button
+//           onClick={resetView}
+//           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm"
+//           title="Reset view"
+//         >
+//           Reset
+//         </button>
+//         <button
+//           onClick={goFullscreen}
+//           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm"
+//           title="Fullscreen"
+//         >
+//           Fullscreen
+//         </button>
+//       </div>
+
+//       {/* Viewer */}
+//       <model-viewer
+//         ref={ref}
+//         src={src}
+//         poster={poster}
+//         alt="Interactive car seat model"
+//         camera-controls
+//         // auto-rotate handled by state/attribute sync above
+//         ar-modes="webxr scene-viewer quick-look"
+//         interaction-prompt="none"
+//         reveal="auto"
+//         loading="eager"
+//         style={{
+//           width: "100%",
+//           height: "62vh",
+//           background: "#0b0b0b",
+//         }}
+//         // initial values (kept in sync via effect)
+//         exposure={exposure}
+//         shadow-intensity={shadowIntensity}
+//       />
+
+//       {/* Bottom HUD: exposure / shadows */}
+//       <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/70 to-transparent p-3 flex flex-col gap-2">
+//         <div className="flex gap-3 items-center text-white/90 text-xs">
+//           <span className="hidden sm:inline">Exposure</span>
+//           <input
+//             type="range"
+//             min="0.6"
+//             max="1.6"
+//             step="0.02"
+//             value={exposure}
+//             onChange={(e) => setExposure(parseFloat(e.target.value))}
+//             className="w-full sm:w-40"
+//           />
+//           <span className="hidden sm:inline">Shadows</span>
+//           <input
+//             type="range"
+//             min="0"
+//             max="1"
+//             step="0.05"
+//             value={shadowIntensity}
+//             onChange={(e) => setShadowIntensity(parseFloat(e.target.value))}
+//             className="w-full sm:w-40"
+//           />
+//         </div>
+//         <div className="text-center text-white/70 text-[12px]">
+//           Drag to rotate • Scroll to zoom • Right-click to pan
+//         </div>
+//       </div>
+
+//       {/* Progress bar */}
+//       {!loaded && (
+//         <div className="absolute left-4 right-4 bottom-4 z-20">
+//           <div className="h-1.5 w-full rounded bg-white/15 overflow-hidden">
+//             <div
+//               className="h-full bg-white/80 transition-all"
+//               style={{ width: `${Math.round(progress * 100)}%` }}
+//             />
+//           </div>
+//           <div className="mt-1 text-right text-[11px] text-white/70">
+//             {Math.round(progress * 100)}%
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+
+// ──────────────────────────────────────────────────────────────
+// Transparent Model Viewer Card
 function ModelViewerCard({ src, poster }) {
   const ref = useRef(null);
   const [autoRotate, setAutoRotate] = useState(true);
-  const [exposure, setExposure] = useState(1);
-  const [shadowIntensity, setShadowIntensity] = useState(0.8);
+  const [exposure, setExposure] = useState(1.1);
+  const [shadowIntensity, setShadowIntensity] = useState(0.7);
   const [progress, setProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  // Progress & load listeners
+  // Track progress/loading
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const onProgress = (e) => {
-      const p = e?.detail?.totalProgress ?? 0;
-      setProgress(p);
-    };
-    const onLoad = () => {
-      setLoaded(true);
-      setProgress(1);
-    };
+    const onProgress = (e) => setProgress(e?.detail?.totalProgress ?? 0);
+    const onLoad = () => { setLoaded(true); setProgress(1); };
 
     el.addEventListener("progress", onProgress);
     el.addEventListener("load", onLoad);
@@ -183,97 +346,82 @@ function ModelViewerCard({ src, poster }) {
     };
   }, []);
 
-  // Keep element attributes in sync with state
+  // Update viewer attributes when state changes
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    // toggle auto-rotate attribute
+
     if (autoRotate) el.setAttribute("auto-rotate", "");
     else el.removeAttribute("auto-rotate");
-    // exposure & shadows
+
     el.setAttribute("exposure", String(exposure));
     el.setAttribute("shadow-intensity", String(shadowIntensity));
-  }, [autoRotate, exposure, shadowIntensity]);
 
-  const toggleRotate = () => setAutoRotate((v) => !v);
+    // Transparent background → no environment image
+    el.removeAttribute("skybox-image");
+    el.removeAttribute("environment-image");
+  }, [autoRotate, exposure, shadowIntensity]);
 
   const resetView = () => {
     const el = ref.current;
-    if (!el) return;
-    // model-viewer provides a helper on the element in modern versions:
-    if (typeof el.resetTurntableRotation === "function") {
-      el.resetTurntableRotation();
-    }
-    // also “jump” the camera to its goal to avoid easing delay
-    if (typeof el.jumpCameraToGoal === "function") {
-      el.jumpCameraToGoal();
-    }
-    // as a fallback, you could also set attributes:
-    // el.setAttribute("camera-orbit", "auto");
-    // el.setAttribute("camera-target", "auto");
+    el?.resetTurntableRotation?.();
+    el?.jumpCameraToGoal?.();
   };
 
   const goFullscreen = () => {
     const el = ref.current;
     if (!el) return;
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.();
-    } else {
-      el.requestFullscreen?.();
-    }
+    document.fullscreenElement
+      ? document.exitFullscreen?.()
+      : el.requestFullscreen?.();
   };
 
   return (
-    <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black/80">
+    <div className="relative rounded-2xl overflow-hidden border border-white/15 backdrop-blur-sm bg-transparent">
       {/* Toolbar */}
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-2">
+      <div className="absolute top-3 right-3 z-10 flex flex-wrap items-center gap-2">
         <button
-          onClick={toggleRotate}
+          onClick={() => setAutoRotate((v) => !v)}
           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm"
-          title="Toggle auto-rotate"
         >
           {autoRotate ? "Pause" : "Rotate"}
         </button>
         <button
           onClick={resetView}
           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm"
-          title="Reset view"
         >
           Reset
         </button>
         <button
           onClick={goFullscreen}
           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white text-sm"
-          title="Fullscreen"
         >
           Fullscreen
         </button>
       </div>
 
-      {/* Viewer */}
+      {/* Transparent viewer */}
       <model-viewer
         ref={ref}
         src={src}
         poster={poster}
         alt="Interactive car seat model"
         camera-controls
-        // auto-rotate handled by state/attribute sync above
-        ar-modes="webxr scene-viewer quick-look"
         interaction-prompt="none"
         reveal="auto"
         loading="eager"
         style={{
           width: "100%",
           height: "62vh",
-          background: "#0b0b0b",
+          background: "transparent", // ✅ transparent background
         }}
-        // initial values (kept in sync via effect)
         exposure={exposure}
         shadow-intensity={shadowIntensity}
+        shadow-softness="0.7"
       />
 
-      {/* Bottom HUD: exposure / shadows */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/70 to-transparent p-3 flex flex-col gap-2">
+      {/* Lighting controls */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/40 to-transparent p-3 flex flex-col gap-2">
         <div className="flex gap-3 items-center text-white/90 text-xs">
           <span className="hidden sm:inline">Exposure</span>
           <input
@@ -318,6 +466,10 @@ function ModelViewerCard({ src, poster }) {
     </div>
   );
 }
+
+
+
+
 
 // ──────────────────────────────────────────────────────────────
 // Header + Right sidebar
