@@ -13,15 +13,15 @@ const Projects = [
   //   demoUrl: `/projects/1`,
   //   githubUrl: "#"
   // },
-  // {
-  //   id: 2,
-  //   title: "AProject 02",
-  //   description: "Finite Element Analysis (FEA) of a post-tensioned anchor system under axial load to evaluate displacement and stress distribution across cables, wedges, and anchor block.",
-  //   image: `${import.meta.env.BASE_URL}Projects/Project_02.jpg`,
-  //   tags: ["FEA", "ANSYS", "Structural"],
-  //   demoUrl: `/projects/2`,
-  //   githubUrl: "#"
-  // },
+  {
+    id: 2,
+    title: "AProject 02",
+    description: "Finite Element Analysis (FEA) of a post-tensioned anchor system under axial load to evaluate displacement and stress distribution across cables, wedges, and anchor block.",
+    image: `${import.meta.env.BASE_URL}Projects/Project_02.jpg`,
+    tags: ["FEA", "ANSYS", "Structural"],
+    demoUrl: `/projects/2`,
+    githubUrl: "#"
+  },
 ];
 
 
