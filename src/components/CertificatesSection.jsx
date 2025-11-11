@@ -163,9 +163,9 @@ const CertificatesSection = () => {
   return (
     <section id="CertificatesSection" className="py-24 px-4 relative">
       <div className="w-full max-w-[95rem] px-6 mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          <span className="text-primary">Certificates</span>
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+					My <span className="text-primary">Certificates</span>
+			</h2>
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           Here are some of my professional certifications.
         </p>

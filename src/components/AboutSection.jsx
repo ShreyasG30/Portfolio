@@ -14,7 +14,7 @@ const certificates = [
 	{
 		key: "T",
 		label: "Triveni Gears",
-		file: `${import.meta.env.BASE_URL}Experience_Letters/Triveni_Gears.pdf`,
+		file: `${import.meta.env.BASE_URL}Experience_Letters/Treveni_Gears.pdf`,
 	},
 ];
 

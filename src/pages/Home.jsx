@@ -16,13 +16,20 @@ export const Home = () => {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.state?.scrollTo) {
-            const el = document.getElementById(location.state.scrollTo);
-            if (el) {
-                el.scrollIntoView({ behavior: "smooth" });
-            }
+        // prefer state passed by navigate, otherwise use URL hash
+        const scrollTo = location.state?.scrollTo || (location.hash ? location.hash.replace("#", "") : null);
+        if (scrollTo) {
+            // slight delay to ensure elements rendered
+            setTimeout(() => {
+                const el = document.getElementById(scrollTo);
+                if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    // clear history state so repeated navigations work cleanly
+                    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+                }
+            }, 80);
         }
-    }, [location.state]);
+    }, [location]);
 
     return <div className="min-h-screen bg-background text-forground overflow-x-hdden">
 
@@ -39,7 +46,7 @@ export const Home = () => {
             <SkillsSection />
             <ProjectsSection />
             <CertificatesSection />
-            {/* <BlogsSection /> */}
+            <BlogsSection />
             <ContactSection />
         </main>
         {/* Footer */}

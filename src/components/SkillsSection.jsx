@@ -35,9 +35,9 @@ const skills = [
 //   { name: "Linux", level: 60, category: "OS/Tools" },
 
   // 🌍 Languages
-  { name: "English", level: 95, category: "Language" },
-  { name: "Spanish", level: 30, category: "Language" },
-  { name: "German", level: 40, category: "Language" }
+  { name: "English", level: 85, category: "Language" },
+  { name: "Spanish", level: 12.5, category: "Language" },
+  { name: "German", level: 25, category: "Language" }
 ];
 
 
