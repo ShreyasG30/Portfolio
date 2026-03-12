@@ -9,6 +9,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 // import Project_01 from "./pages/Project_01";
 import Project_02 from "./pages/Project_02"; 
 import { FooterSection } from "./components/FooterSection";
+import SmokeControl from "./pages/blogs/SmokeControl";
 
 
 
@@ -25,6 +26,7 @@ function App() {
           {/* <Route path="projects/1" element={<Project_01 />} /> */}
           <Route path="projects/2" element={<Project_02 />} />
           <Route path="projects/:projectId" element={<ProjectDetail />} />
+          <Route path="blogs/smoke-control" element={<SmokeControl />} />
           <Route path="*" element={<NotFound />} />
           
         </Routes>
