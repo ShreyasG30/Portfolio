@@ -2,13 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const blogs = [
+  // {
+  //   id: "smoke-control",
+  //   title: "How Do You Stop Smoke in a 105,000-Seat Stadium?",
+  //   date: "March 2026",
+  //   category: "MEP Engineering",
+  //   summary: "A plain-language guide to smoke control engineering — told through the real systems being installed at the Spotify Camp Nou renovation in Barcelona.",
+  //   link: "/blogs/smoke-control"
+  // },
   {
-    id: "smoke-control",
-    title: "How Do You Stop Smoke in a 105,000-Seat Stadium?",
-    date: "March 2026",
+    id: "hvac-systems",
+    title: "HVAC Systems in Large Buildings: How They Work and Why They Matter",
+    date: "April 2026",
     category: "MEP Engineering",
-    summary: "A plain-language guide to smoke control engineering — told through the real systems being installed at the Spotify Camp Nou renovation in Barcelona.",
-    link: "/blogs/smoke-control"
+    summary: "A technical-but-readable guide to HVAC fundamentals, practical building applications, and how systems scale for large venues like Camp Nou.",
+    link: "/blogs/hvac-systems"
   }
 ];
 

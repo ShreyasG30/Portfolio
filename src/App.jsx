@@ -10,6 +10,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Project_02 from "./pages/Project_02"; 
 import { FooterSection } from "./components/FooterSection";
 import SmokeControl from "./pages/blogs/SmokeControl";
+import HVACSystemsBlog from "./pages/blogs/HVACSystemsBlog";
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="projects/2" element={<Project_02 />} />
           <Route path="projects/:projectId" element={<ProjectDetail />} />
           <Route path="blogs/smoke-control" element={<SmokeControl />} />
+          <Route path="blogs/hvac-systems" element={<HVACSystemsBlog />} />
           <Route path="*" element={<NotFound />} />
           
         </Routes>
