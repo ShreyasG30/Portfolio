@@ -11,6 +11,8 @@ import Project_02 from "./pages/Project_02";
 import { FooterSection } from "./components/FooterSection";
 import SmokeControl from "./pages/blogs/SmokeControl";
 import HVACSystemsBlog from "./pages/blogs/HVACSystemsBlog";
+import HVACLoadCalculationsBlog from "./pages/blogs/HVACLoadCalculationsBlog";
+import { Toaster } from "@/components/ui/toaster";
 
 
 
@@ -19,7 +21,7 @@ function App() {
     <>
       <StarBackground />
       <ThemeToggle />
-        <BrowserRouter  basename="/Portfolio">
+      <BrowserRouter basename="/Portfolio">
         <Navbar />
         <Routes>
           <Route index element={<Home />} />
@@ -29,9 +31,10 @@ function App() {
           <Route path="projects/:projectId" element={<ProjectDetail />} />
           <Route path="blogs/smoke-control" element={<SmokeControl />} />
           <Route path="blogs/hvac-systems" element={<HVACSystemsBlog />} />
+          <Route path="blogs/hvac-load-calculations" element={<HVACLoadCalculationsBlog />} />
           <Route path="*" element={<NotFound />} />
-          
         </Routes>
+        <Toaster />
       </BrowserRouter>
       <FooterSection />
     </>

@@ -1,37 +1,68 @@
-import { Mail, MapPin, Phone, Github, Send } from "lucide-react";
-import { Linkedin } from "lucide-react";
-import { cn } from "@/libs/utils";
-import { useRef } from "react";
-import { toast } from "@/hooks/use-toast";
+import { useRef, useState } from "react";
+import { Mail, MapPin, Phone, Github, Send, Linkedin } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { cn } from "@/libs/utils";
+import { toast } from "@/hooks/use-toast";
 
 export const ContactSection = () => {
-  const formRef = useRef();
+  const formRef = useRef(null);
+  const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const EMAILJS_SERVICE_ID = "service_8ig858k";
+  const EMAILJS_TEMPLATE_ID = "template_f0smdup";
+  const EMAILJS_PUBLIC_KEY = "gYMfRJn9zBlMl7eBi";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_8ig858k",   // e.g. service_abc123
-        "template_f0smdup",  // e.g. template_xyz456
-        formRef.current,
-        "gYMfRJn9zBlMl7eBi"    // e.g. xzT5O9vKJ6jN8
-      )
-      .then(() => {
-        toast({
-          title: "Message Sent!",
-          description: "Thanks for reaching out. I'll get back to you soon.",
-        });
-        formRef.current.reset();
-      })
-      .catch((error) => {
-        toast({
-          title: "Send Failed",
-          description: "Something went wrong. Please try again later.",
-        });
-        console.error("EmailJS Error:", error);
+    if (!formRef.current || isSending) return;
+
+    setIsSending(true);
+
+    try {
+      const formData = new FormData(formRef.current);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const subject = String(formData.get("title") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      // Include common alias keys so different EmailJS template variable names still resolve.
+      const templateParams = {
+        name,
+        from_name: name,
+        user_name: name,
+        email,
+        from_email: email,
+        reply_to: email,
+        user_email: email,
+        title: subject,
+        subject,
+        message,
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
       });
+
+      formRef.current.reset();
+    } catch (error) {
+      const details = error?.text || error?.message || "Unknown error";
+      toast({
+        title: "Send Failed",
+        description: `Email service error: ${details}`,
+      });
+      console.error("EmailJS Error:", error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -40,14 +71,16 @@ export const ContactSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary"> Touch </span>
         </h2>
+
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           I'm always open to discussing new projects, creative ideas, or
           opportunities to be part of your vision. Feel free to reach out!
         </p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* LEFT - CONTACT INFO */}
           <div className="space-y-8">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
@@ -71,7 +104,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="text-lg font-semibold">Phone</h4>
                   <a
-                    href="tel:+34 641 924 789"
+                    href="tel:+34641924789"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     +34 641 924 789
@@ -85,9 +118,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold">Location</h4>
-                  <span className="text-muted-foreground hover:text-primary transition-colors">
-                    Barcelona, Spain
-                  </span>
+                  <span className="text-muted-foreground">Barcelona, Spain</span>
                 </div>
               </div>
             </div>
@@ -98,14 +129,19 @@ export const ContactSection = () => {
                 <a
                   href="https://www.linkedin.com/in/shreyas-girish-67677b134/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="LinkedIn"
                 >
                   <Linkedin size={20} className="h-6 w-6 text-primary" />
                 </a>
+
                 <a
                   href="https://github.com/ShreyasG30"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="GitHub"
                 >
                   <Github size={20} className="h-6 w-6 text-primary" />
                 </a>
@@ -113,9 +149,9 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* RIGHT - FORM */}
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
+
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -152,8 +188,8 @@ export const ContactSection = () => {
                 <input
                   type="text"
                   id="title"
-                  required
                   name="title"
+                  required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Enter subject"
                 />
@@ -175,9 +211,14 @@ export const ContactSection = () => {
 
               <button
                 type="submit"
-                className={cn("cosmic-button w-full", "flex items-center justify-center gap-2")}
+                disabled={isSending}
+                className={cn(
+                  "cosmic-button w-full flex items-center justify-center gap-2",
+                  isSending && "opacity-70 cursor-not-allowed"
+                )}
               >
-                Send Message <Send size={20} />
+                {isSending ? "Sending..." : "Send Message"}
+                <Send size={20} />
               </button>
             </form>
           </div>

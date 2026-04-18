@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HVACSystemsBlog = () => {
   const navigate = useNavigate();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const handleBack = () => {
-    if (window.history.length > 1) {
+    const canGoBack = typeof window !== 'undefined'
+      && typeof window.history.state?.idx === 'number'
+      && window.history.state.idx > 0;
+
+    if (canGoBack) {
       navigate(-1);
       return;
     }
 
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   const scrollToTop = () => {
@@ -103,6 +107,19 @@ const HVACSystemsBlog = () => {
           <p className="text-foreground/80">
             This article explains how HVAC works in plain language, where it is used, why it is necessary, and what changes when you scale it up for large venues like Camp Nou.
           </p>
+
+          <div className="mt-6 border border-border rounded-lg p-5 bg-card">
+            <h4 className="font-semibold text-foreground mb-2">Want to go deeper with real calculations?</h4>
+            <p className="text-sm text-foreground/70 mb-3">
+              This is Part 1 (fundamentals). Continue to Part 2 for a worked HVAC load example with editable inputs and live calculated results.
+            </p>
+            <Link
+              to="/blogs/hvac-load-calculations"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-sm"
+            >
+              Open Part 2: HVAC Load Calculation Deep Dive →
+            </Link>
+          </div>
         </section>
 
         {/* SECTION 1 */}
@@ -458,6 +475,19 @@ const HVACSystemsBlog = () => {
 
         {/* TAKEAWAYS */}
         <section className="mt-16 pt-8 border-t border-border">
+          <div className="border border-border rounded-lg p-5 bg-card mb-8">
+            <h4 className="font-semibold text-foreground mb-2">Continue to the deep-calculation article</h4>
+            <p className="text-sm text-foreground/70 mb-3">
+              Ready for numbers? The next post walks through a full HVAC load estimate including sensible and latent loads, airflow sizing, and fan power checks.
+            </p>
+            <Link
+              to="/blogs/hvac-load-calculations"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-sm"
+            >
+              Open HVAC Load Calculation Deep Dive →
+            </Link>
+          </div>
+
           <h3 className="text-2xl font-bold mb-6">Key Takeaways</h3>
 
           <div className="space-y-3 bg-card border border-border rounded-lg p-6">

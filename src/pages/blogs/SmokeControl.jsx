@@ -4,6 +4,19 @@ import { useNavigate } from 'react-router-dom';
 const SmokeControl = () => {
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    const canGoBack = typeof window !== 'undefined'
+      && typeof window.history.state?.idx === 'number'
+      && window.history.state.idx > 0;
+
+    if (canGoBack) {
+      navigate(-1);
+      return;
+    }
+
+    navigate('/', { replace: true });
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,7 +26,7 @@ const SmokeControl = () => {
       {/* Back Button */}
       <div className="max-w-3xl mx-auto px-6 py-6">
         <button
-          onClick={() => navigate(-1)}
+          onClick={handleBack}
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
         >
           ← Back

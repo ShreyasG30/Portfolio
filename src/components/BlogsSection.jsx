@@ -11,9 +11,17 @@ const blogs = [
   //   link: "/blogs/smoke-control"
   // },
   {
+    id: "hvac-load-calculations",
+    title: "HVAC Load Calculation Deep Dive: From Basics to Numbers",
+    date: "18 April 2026",
+    category: "MEP Engineering",
+    summary: "A calculation-focused continuation of the HVAC basics post with a full worked example: sensible/latent load, airflow, fan power, and zone equipment sizing.",
+    link: "/blogs/hvac-load-calculations"
+  },
+  {
     id: "hvac-systems",
     title: "HVAC Systems in Large Buildings: How They Work and Why They Matter",
-    date: "April 2026",
+    date: "11 April 2026",
     category: "MEP Engineering",
     summary: "A technical-but-readable guide to HVAC fundamentals, practical building applications, and how systems scale for large venues like Camp Nou.",
     link: "/blogs/hvac-systems"
