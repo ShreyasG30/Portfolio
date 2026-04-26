@@ -12,6 +12,7 @@ import { FooterSection } from "./components/FooterSection";
 import SmokeControl from "./pages/blogs/SmokeControl";
 import HVACSystemsBlog from "./pages/blogs/HVACSystemsBlog";
 import HVACLoadCalculationsBlog from "./pages/blogs/HVACLoadCalculationsBlog";
+import HVACCitationCalculationsBlog from "./pages/blogs/HVACCitationCalculationsBlog";
 import { Toaster } from "@/components/ui/toaster";
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="blogs/smoke-control" element={<SmokeControl />} />
           <Route path="blogs/hvac-systems" element={<HVACSystemsBlog />} />
           <Route path="blogs/hvac-load-calculations" element={<HVACLoadCalculationsBlog />} />
+          <Route path="blogs/hvac-citation-calculations" element={<HVACCitationCalculationsBlog />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />

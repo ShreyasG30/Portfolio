@@ -11,6 +11,14 @@ const blogs = [
   //   link: "/blogs/smoke-control"
   // },
   {
+    id: "hvac-citation-calculations",
+    title: "HVAC Calculations With Proof and References",
+    date: "26 April 2026",
+    category: "MEP Engineering",
+    summary: "A citation-backed HVAC calculation guide with auditable defaults, additional core checks (ventilation, CO2, SFP, TR conversion), and an editable calculator.",
+    link: "/blogs/hvac-citation-calculations"
+  },
+  {
     id: "hvac-load-calculations",
     title: "HVAC Load Calculation Deep Dive: From Basics to Numbers",
     date: "18 April 2026",

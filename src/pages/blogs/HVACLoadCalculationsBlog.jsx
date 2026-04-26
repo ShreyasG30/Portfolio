@@ -143,6 +143,18 @@ const HVACLoadCalculationsBlog = () => {
               . This post extends that foundation with practical calculations.
             </p>
           </div>
+
+          <div className="border border-border rounded-lg p-4 bg-card mt-4">
+            <p className="text-sm text-foreground/70">
+              Need citation-backed defaults and references for each assumption?
+              {' '}
+              <Link to="/blogs/hvac-citation-calculations" className="text-primary hover:text-primary/80 font-semibold">
+                Open the evidence-based HVAC calculations post
+              </Link>
+              {' '}
+              with traceable source links and an auditable calculator.
+            </p>
+          </div>
         </section>
 
         <section className="mb-16">
@@ -446,16 +458,36 @@ const HVACLoadCalculationsBlog = () => {
         </section>
 
         <section className="mt-16 pt-8 border-t border-border">
-          <h3 className="text-2xl font-bold mb-4">Continue Learning</h3>
-          <p className="text-foreground/80 mb-4">
-            If you want the non-calculation version first, read the foundation post:
-          </p>
-          <Link
-            to="/blogs/hvac-systems"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold"
-          >
-            ← HVAC Systems in Large Buildings: How They Work and Why They Matter
-          </Link>
+          <h3 className="text-2xl font-bold mb-6">Other Blogs</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Link
+              to="/blogs/hvac-systems"
+              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
+            >
+              <div className="h-28 bg-gradient-to-r from-indigo-500/30 via-blue-500/20 to-transparent border-b border-border px-4 py-3">
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 1</span>
+                <p className="text-sm text-foreground/80 mt-2">Fundamentals and System Concepts</p>
+              </div>
+              <div className="p-4">
+                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Systems in Large Buildings</h4>
+                <p className="text-xs text-foreground/60 mt-1">Concepts, zoning, controls, and applications</p>
+              </div>
+            </Link>
+
+            <Link
+              to="/blogs/hvac-citation-calculations"
+              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
+            >
+              <div className="h-28 bg-gradient-to-r from-emerald-500/30 via-teal-500/20 to-transparent border-b border-border px-4 py-3">
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 3</span>
+                <p className="text-sm text-foreground/80 mt-2">Calculation Proof and References</p>
+              </div>
+              <div className="p-4">
+                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Calculations With Proof and References</h4>
+                <p className="text-xs text-foreground/60 mt-1">Research-backed defaults with auditable checks</p>
+              </div>
+            </Link>
+          </div>
         </section>
       </main>
 

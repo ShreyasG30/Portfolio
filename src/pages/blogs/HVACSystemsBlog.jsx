@@ -475,18 +475,6 @@ const HVACSystemsBlog = () => {
 
         {/* TAKEAWAYS */}
         <section className="mt-16 pt-8 border-t border-border">
-          <div className="border border-border rounded-lg p-5 bg-card mb-8">
-            <h4 className="font-semibold text-foreground mb-2">Continue to the deep-calculation article</h4>
-            <p className="text-sm text-foreground/70 mb-3">
-              Ready for numbers? The next post walks through a full HVAC load estimate including sensible and latent loads, airflow sizing, and fan power checks.
-            </p>
-            <Link
-              to="/blogs/hvac-load-calculations"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-sm"
-            >
-              Open HVAC Load Calculation Deep Dive →
-            </Link>
-          </div>
 
           <h3 className="text-2xl font-bold mb-6">Key Takeaways</h3>
 
@@ -525,7 +513,42 @@ const HVACSystemsBlog = () => {
 
           <p className="font-semibold text-foreground text-lg">That is the value of good HVAC engineering.</p>
         </section>
-      </main>
+      
+
+        {/* OTHER BLOGS */}
+          <section className="mt-16 pt-8 border-t border-border">
+            <h3 className="text-2xl font-bold mb-6">Other Blogs</h3>
+            <div className="grid gap-4 md:grid-cols-2 mb-8">
+              <Link
+                to="/blogs/hvac-load-calculations"
+                className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
+              >
+                <div className="h-28 bg-gradient-to-r from-sky-500/30 via-cyan-500/20 to-transparent border-b border-border px-4 py-3">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 2</span>
+                  <p className="text-sm text-foreground/80 mt-2">Load Sizing and Airflow</p>
+                </div>
+                <div className="p-4">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Load Calculation Deep Dive</h4>
+                  <p className="text-xs text-foreground/60 mt-1">Worked sensible/latent load + fan power checks</p>
+                </div>
+              </Link>
+
+              <Link
+                to="/blogs/hvac-citation-calculations"
+                className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
+              >
+                <div className="h-28 bg-gradient-to-r from-emerald-500/30 via-teal-500/20 to-transparent border-b border-border px-4 py-3">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 3</span>
+                  <p className="text-sm text-foreground/80 mt-2">Proof and References</p>
+                </div>
+                <div className="p-4">
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Calculations With Proof and References</h4>
+                  <p className="text-xs text-foreground/60 mt-1">Research-based defaults and validation check</p>
+                </div>
+              </Link>
+            </div>
+          </section>
+        </main>
 
       {/* Footer */}
       <footer className="mt-20 border-t border-border bg-card/30 backdrop-blur-sm py-8">
