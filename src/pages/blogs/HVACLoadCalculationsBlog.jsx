@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import BlogRelatedPosts from '../../components/BlogRelatedPosts';
 
 const HVACLoadCalculationsBlog = () => {
   const navigate = useNavigate();
@@ -457,38 +458,27 @@ const HVACLoadCalculationsBlog = () => {
           </div>
         </section>
 
-        <section className="mt-16 pt-8 border-t border-border">
-          <h3 className="text-2xl font-bold mb-6">Other Blogs</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Link
-              to="/blogs/hvac-systems"
-              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
-            >
-              <div className="h-28 bg-gradient-to-r from-indigo-500/30 via-blue-500/20 to-transparent border-b border-border px-4 py-3">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 1</span>
-                <p className="text-sm text-foreground/80 mt-2">Fundamentals and System Concepts</p>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Systems in Large Buildings</h4>
-                <p className="text-xs text-foreground/60 mt-1">Concepts, zoning, controls, and applications</p>
-              </div>
-            </Link>
-
-            <Link
-              to="/blogs/hvac-citation-calculations"
-              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
-            >
-              <div className="h-28 bg-gradient-to-r from-emerald-500/30 via-teal-500/20 to-transparent border-b border-border px-4 py-3">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 3</span>
-                <p className="text-sm text-foreground/80 mt-2">Calculation Proof and References</p>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Calculations With Proof and References</h4>
-                <p className="text-xs text-foreground/60 mt-1">Research-backed defaults with auditable checks</p>
-              </div>
-            </Link>
-          </div>
-        </section>
+        <BlogRelatedPosts
+          title="Other Blogs"
+          posts={[
+            {
+              link: '/blogs/hvac-systems',
+              part: 'Part 1',
+              banner: 'Fundamentals and System Concepts',
+              title: 'HVAC Systems in Large Buildings',
+              subtitle: 'Concepts, zoning, controls, and applications',
+              gradient: 'bg-gradient-to-r from-indigo-500/30 via-blue-500/20 to-transparent'
+            },
+            {
+              link: '/blogs/hvac-citation-calculations',
+              part: 'Part 3',
+              banner: 'Calculation Proof and References',
+              title: 'HVAC Calculations With Proof and References',
+              subtitle: 'Research-backed defaults with auditable checks',
+              gradient: 'bg-gradient-to-r from-emerald-500/30 via-teal-500/20 to-transparent'
+            }
+          ]}
+        />
       </main>
 
       <footer className="mt-20 border-t border-border bg-card/30 backdrop-blur-sm py-8">

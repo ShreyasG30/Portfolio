@@ -11,6 +11,14 @@ const blogs = [
   //   link: "/blogs/smoke-control"
   // },
   {
+    id: "hvac-cfd-role",
+    title: "The Role of CFD in HVAC Design",
+    date: "3 May 2026",
+    category: "MEP Engineering",
+    summary: "A critical look at where CFD genuinely helps HVAC design, where it misleads, and why polished simulations can still hide bad assumptions.",
+    link: "/blogs/hvac-cfd-role"
+  },
+  {
     id: "hvac-citation-calculations",
     title: "HVAC Calculations With Proof and References",
     date: "26 April 2026",

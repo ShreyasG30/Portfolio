@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import BlogRelatedPosts from '../../components/BlogRelatedPosts';
 
 const defaults = {
   occupancy: 1200,
@@ -361,7 +362,7 @@ const HVACCitationCalculationsBlog = () => {
                   4) Indoor CO2 target = outdoor + allowed rise = {fmt(inputs.outdoorCO2ppm, 0)} + {fmt(inputs.co2DeltaPpm, 0)} = <strong>{fmt(results.indoorCO2Target, 0)} ppm</strong>
                 </p>
                 <p>
-                  5) SFP = fan power / airflow = ({fmt(inputs.fanPowerKW, 2)} x 1000) / {fmt(inputs.fanAirflowM3s, 2)} = <strong>{fmt(results.sfpWPerM3s, 0)} W/(m3/s)</strong> => <strong>{results.sfpClass}</strong>
+                  5) SFP = fan power / airflow = ({fmt(inputs.fanPowerKW, 2)} x 1000) / {fmt(inputs.fanAirflowM3s, 2)} = <strong>{fmt(results.sfpWPerM3s, 0)} W/(m3/s)</strong> &rarr; <strong>{results.sfpClass}</strong>
                 </p>
                 <p>
                   6) Airflow from sensible load = Qs / (rho x cp x deltaT) = {fmt(inputs.sensibleLoadKW, 2)} / ({fmt(inputs.airDensity, 3)} x {fmt(inputs.cpKJkgK, 3)} x {fmt(inputs.deltaT, 2)}) = <strong>{fmt(results.airflowFromSensibleM3s, 3)} m3/s</strong>
@@ -442,38 +443,27 @@ const HVACCitationCalculationsBlog = () => {
           </div>
         </section>
 
-        <section className="mt-16 pt-8 border-t border-border">
-          <h3 className="text-2xl font-bold mb-4">Related Posts</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Link
-              to="/blogs/hvac-systems"
-              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
-            >
-              <div className="h-24 bg-gradient-to-r from-indigo-500/30 via-blue-500/20 to-transparent border-b border-border px-4 py-3">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 1</span>
-                <p className="text-sm text-foreground/80 mt-1">HVAC Fundamentals</p>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Systems in Large Buildings</h4>
-                <p className="text-xs text-foreground/60 mt-1">Conceptual foundation before calculations</p>
-              </div>
-            </Link>
-
-            <Link
-              to="/blogs/hvac-load-calculations"
-              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary transition-colors"
-            >
-              <div className="h-24 bg-gradient-to-r from-sky-500/30 via-cyan-500/20 to-transparent border-b border-border px-4 py-3">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Part 2</span>
-                <p className="text-sm text-foreground/80 mt-1">Load Calculation Walkthrough</p>
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">HVAC Load Calculation Deep Dive</h4>
-                <p className="text-xs text-foreground/60 mt-1">Worked load, airflow, and fan-power equations</p>
-              </div>
-            </Link>
-          </div>
-        </section>
+        <BlogRelatedPosts
+          title="Related Posts"
+          posts={[
+            {
+              link: '/blogs/hvac-systems',
+              part: 'Part 1',
+              banner: 'HVAC Fundamentals',
+              title: 'HVAC Systems in Large Buildings',
+              subtitle: 'Conceptual foundation before calculations',
+              gradient: 'bg-gradient-to-r from-indigo-500/30 via-blue-500/20 to-transparent'
+            },
+            {
+              link: '/blogs/hvac-load-calculations',
+              part: 'Part 2',
+              banner: 'Load Calculation Walkthrough',
+              title: 'HVAC Load Calculation Deep Dive',
+              subtitle: 'Worked load, airflow, and fan-power equations',
+              gradient: 'bg-gradient-to-r from-sky-500/30 via-cyan-500/20 to-transparent'
+            }
+          ]}
+        />
       </main>
 
       <footer className="mt-20 border-t border-border bg-card/30 backdrop-blur-sm py-8">
